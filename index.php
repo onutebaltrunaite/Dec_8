@@ -6,16 +6,11 @@ date_default_timezone_set('Europe/Vilnius');
 
 $fiji = 'https://images-na.ssl-images-amazon.com/images/I/71xv3sXmr7L._SL1500_.jpg';
 
-$monday = rand(0, 5);
-$thuesday = rand(0, 5);
-$wednesday = rand(0, 5);
-$thursday = rand(3, 7);
-$friday = rand(5, 15);
-$saturday = rand(2, 4);
-$sunday = rand(0, 2);
+$monthSum = 0;
 
-$sum = $monday + $thuesday + $wednesday + $thursday + $friday + $saturday + $sunday;
-print $sum;
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -38,11 +33,22 @@ img {
 
     <?php 
         
-        for ($x = 0; $x < $sum; $x++ ) {
-            print "<img src='$fiji'>" ;
-        }
+        for ($week = 0; $week < 4; $week++ ){
+            // var_dump($week);
+            $monday = rand(0, 5);
+            $thuesday = rand(0, 5);
+            $wednesday = rand(0, 5);
+            $thursday = rand(3, 7);
+            $friday = rand(5, 15);
+            $saturday = rand(2, 4);
+            $sunday = rand(0, 2);
 
-    
+            $sum[$week] = $monday + $thuesday + $wednesday + $thursday + $friday + $saturday + $sunday;
+            // var_dump($sum[$week]);
+
+            $monthSum += $sum[$week];
+        }
+        print $monthSum;
 
     ?>
 
