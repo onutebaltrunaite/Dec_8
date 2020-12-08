@@ -5,6 +5,7 @@ error_reporting(E_ALL);
 date_default_timezone_set('Europe/Vilnius');
 
 $fiji = 'https://images-na.ssl-images-amazon.com/images/I/71xv3sXmr7L._SL1500_.jpg';
+$fijiBox = 'https://cdn.shopify.com/s/files/1/0051/7262/5477/products/fiji-bottle-1000ml-shipper-bottle-2x_900x900.png?v=1569981132';
 
 $monthSum = 0;
 
@@ -48,7 +49,18 @@ img {
 
             $monthSum += $sum[$week];
         }
-        print $monthSum;
+        print $monthSum . ' ';
+        $boxes = intdiv($monthSum, 12);
+        print $boxes;
+        $fijiLoose = $monthSum - ($boxes * 12);
+        
+
+        for ($x = 0; $x < $boxes; $x++) {
+            print "<img src ='$fijiBox'>";
+        }
+        for ($x = 0; $x < $fijiLoose; $x++) {
+            print "<img src ='$fiji'>";
+        }
 
     ?>
 
