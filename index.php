@@ -49,16 +49,22 @@ img {
 
             $monthSum += $sum[$week];
         }
-        print $monthSum . ' ';
-        $boxes = intdiv($monthSum, 12);
-        print $boxes;
-        $fijiLoose = $monthSum - ($boxes * 12);
+        print 'Per menesi isgerta ' . $monthSum . '<br>';
+        $leftovers = ($monthSum % 12);
+        print 'Liekana buteliuku' . $leftovers . '<br>';
+
+        // $boxes = intdiv($monthSum, 12);
+        // print $boxes;
+        $boxes = ($monthSum - $leftovers)/12 ;
+        print 'Is viso deziu ' . $boxes . '<br>';
+
+        // $fijiLoose = $monthSum - ($boxes * 12);
         
 
         for ($x = 0; $x < $boxes; $x++) {
             print "<img src ='$fijiBox'>";
         }
-        for ($x = 0; $x < $fijiLoose; $x++) {
+        for ($x = 0; $x < $leftovers; $x++) {
             print "<img src ='$fiji'>";
         }
 
