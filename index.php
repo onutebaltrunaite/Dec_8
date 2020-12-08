@@ -4,11 +4,18 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 date_default_timezone_set('Europe/Vilnius');
 
- $string = 'Labas krabas';
- $int = 45;
- $bool = true; 
- $null = null;
- $img = 'images/bomb.jpg';
+$fiji = 'https://images-na.ssl-images-amazon.com/images/I/71xv3sXmr7L._SL1500_.jpg';
+
+$monday = rand(0, 5);
+$thuesday = rand(0, 5);
+$wednesday = rand(0, 5);
+$thursday = rand(3, 7);
+$friday = rand(5, 15);
+$saturday = rand(2, 4);
+$sunday = rand(0, 2);
+
+$sum = $monday + $thuesday + $wednesday + $thursday + $friday + $saturday + $sunday;
+print $sum;
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +25,10 @@ date_default_timezone_set('Europe/Vilnius');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Title </title>
 <style>
+img {
+    width: 200px;
+    height: 300px;
+}
 </style>
 
 </head>
@@ -25,18 +36,15 @@ date_default_timezone_set('Europe/Vilnius');
 </head>
 <body>
 
-<ul>
-    <li><?php print $string; ?></li>
-    <li><?php print $int; ?></li>
-    <li><?php print $bool; ?></li>
-    <li><?php print $null; ?></li>
-</ul>
+    <?php 
+        
+        for ($x = 0; $x < $sum; $x++ ) {
+            print "<img src='$fiji'>" ;
+        }
 
-    <img src="<?php print $img; ?>" alt="">
-    <img src="<?php print $img; ?>" alt="">
-    <img src="<?php print $img; ?>" alt="">
-    <img src="<?php print $img; ?>" alt="">
+    
 
+    ?>
 
 
 
