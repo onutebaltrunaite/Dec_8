@@ -23,53 +23,72 @@ date_default_timezone_set('Europe/Vilnius');
 <body>
 
     <?php 
-
-        $vienmatisMasyvas = [
-            'color' => 'red',
-            'size' => 's',
-            'price' => '19.99$',
+        $vartotojai = [
+            'Person1' => [
+                'vardas' => 'Vardenis',
+                'pavarde' => 'Pavardenis',
+                'telefonas' => '666-666-666',
+                'amzius' => '65metai',
+                'lytis' => 'vyras',
+            ],
+            'Person2' => [
+                'vardas' => 'Jonas',
+                'pavarde' => 'Jonauskas',
+                'telefonas' => '555-666-555',
+                'amzius' => '45metai',
+                'lytis' => 'vyras',
+            ],
+            'Person3' => [
+                'vardas' => 'Jurga',
+                'pavarde' => 'Jurgiene',
+                'telefonas' => '444-333-666',
+                'amzius' => '25metai',
+                'lytis' => 'moteris',
+            ],
+            'Person4' => [
+                'vardas' => 'Giedre',
+                'pavarde' => 'Gaidyte',
+                'telefonas' => '666-777-666',
+                'amzius' => '35metai',
+                'lytis' => 'moteris',
+            ],
+            'Person5' => [
+                'vardas' => 'Tatjana',
+                'pavarde' => 'Iene',
+                'telefonas' => '999-999-999',
+                'amzius' => '30metai',
+                'lytis' => 'moteris',
+            ],
         ];
-        var_dump($vienmatisMasyvas);
-        var_dump($vienmatisMasyvas['price']);
 
-        $carShop = [
-            'salon1' => [
-                'skoda' => [
-                    'model' => 'skoda yeti',
-                    'years' => '2010',
-                    'fuel' => 'dyzelis',
-                    'seats' => '6',
+        
+        // var_dump($vartotojai);
+        foreach($vartotojai as $person) {
+            print $person['vardas'] . ' ';
+        };
+            // var_dump($vartotojai);
+            // foreach($vartotojai as $key => $value){
+            //     var_dump($value);
+            // }
 
-                ],
-                    'bmw' => [
-                        'model' => 'bmw 118d',
-                        'years' => '2009',
-                        'fuel' => 'dyzelis',
-                        'seats' => '6',
-                    ],
-                ],
-            'salon2' => [
-                'fiat' => [
-                    'model' => 'fiat yeti',
-                    'years' => '1991',
-                    'fuel' => 'benzas',
-                    'seats' => '6',
-
-                ],
-                    'bmw' => [
-                        'model' => 'bmw kazkoks',
-                        'years' => '2020',
-                        'fuel' => 'dyzelis',
-                        'seats' => '6',
-                    ],
-                ],
-            ];
-
-            var_dump($carShop['salon1']['skoda']);
-            var_dump($carShop['salon2']['fiat']['fuel']);
 
     ?>
-
+        <table>
+            <tr>
+                <?php foreach(array_keys($vartotojai) as $vardas): ?>
+                <th><?php print $vardas . ' '; ?></th>
+                <?php endforeach; ?>
+            </tr>
+                <?php foreach($vartotojai as $info): ?>
+            <tr>
+                <td><?php print $info['vardas'] . ' '; ?></td>
+                <td><?php print $info['pavarde'] . ' '; ?></td>
+                <td><?php print $info['telefonas'] . ' '; ?></td>
+                <td><?php print $info['amzius'] . ' '; ?></td>
+                <td><?php print $info['lytis'] . ' '; ?></td>
+            </tr>
+                <?php endforeach; ?>    
+        </table>
 
 
 
