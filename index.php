@@ -326,10 +326,10 @@ $phoneArray = [
     <?php endforeach; ?> -->
 
 <div class="container">
-        <?php foreach($phoneArray as $key => $samsungOrHuawei): ?>
+        <?php foreach($phoneArray as $key => $samsungOrHuawei): if($key == 'samsung') {$color = 'blue';} else {$color = 'red';}?>
         <?php foreach($samsungOrHuawei as $data): ?>
-            <div class="card">
-                <img class="imgSize" src="<?php print $data['image'] ?>" alt="" height="200px" width="160px" margin="10px">
+            <div class="card" style="background-color: <?php print $color ?>";>
+                <img src="<?php print $data['image'] ?>" alt="" height="200px" width="160px" margin="10px">
                 <p>Brand: <?php print $key ?></p>
                 <p>Model: <?php print $data['model'] ?></p>
                 <p>Memory: <?php print $data['memory'] ?></p>
@@ -366,9 +366,6 @@ $phoneArray = [
 
 
 
-        <?php foreach ($weekTemp as $value) : if($value < 0) { $color = 'blue'; } else { $color = 'red'; } ?>
-        <div class="<?php print $color; ?>" style="width:<?php print abs($value) . 'px';?>"></div>
-        <?php endforeach; ?>
 
 
 </body>
