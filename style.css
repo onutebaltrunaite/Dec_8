@@ -1,24 +1,6 @@
-.nav {
-    display: flex;
-    justify-content: center;
+.red {
+    color: red;
 }
-.btnStyle {
-    margin: 20px;
-    padding: 10px;
-    border-radius: 15px;
-    background-color: lightgrey;
-}
-.btnStyle:hover {
-    background-color: rgb(160, 157, 157);  
-}
-img {
-    height: 200px;
-    margin: 20px;
-}
-.d-flex {
-    display: flex;
-    /* flex-wrap: wrap; */
-}
-h1 {
-    margin-top: 100px;
+.blue {
+    color: blue;
 }
