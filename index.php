@@ -3,157 +3,99 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-//1. Sukurkite 29 dienu masyva panaudojant for cikla. Kiekvienoje dienoje turi
-// buti 'Name' => '1-dienis', '29-dienis' ir uzimtumas random vertinant nuo 0(laisva) iki 5(uzimtas)
-
-$masyvas = [];
-for ($x = 1; $x < 30; $x++){
-    $masyvas[] = [
-        'name' => "$x - dienis",
-        'workload' => rand(0, 5)
-    ];
-
-};
-// var_dump($masyvas);
-
-//2. Parasyti if kuris tikrintu ar 10 diena yra laisva, jei taip - ekrane raudona spalva, panaudojus
-//h1 taga atvaizduoti 'Tau siandiena laisva'.
-$reiksme = '';
-
-if ($masyvas[9]['workload'] == 0) {
-    $reiksme = 'Tau siandien laisva diena';
-};
-
-//3. Parasyti cikla kuris tikrintu visa musu masyva ir priklausomai nuo to ar masyve
-// yra daugiau nei 3 laisvos dienos atvaizduoti ekrane h3 tage melyna spalva 'Atostogos'.
-
-$number = 0;
-foreach ($masyvas as $key => $value) {
-    if($value['workload'] == 0){
-        $number++ ;
-    }
-};
-
-$saldainiai = [
-    'sveriami' => [
-        'sokoladiniai' => [
-            [
-                'name' => 'Migle',
-                'price' => 9,
-            ],
-            [
-                'name' => 'Kauke',
-                'price' => 7,
-            ],
-        ],
-        'ledinukai' => [
-            [
-                'name' => 'Bibi',
-                'price' => 3.4,
-            ],
-            [
-                'name' => 'Ledainis',
-                'price' => 3,
-            ],
-        ],
+$darbuotojai = [
+    [
+        'name' => 'Juozas',
+        'lastname' => 'Juozaitis',
+        'age' => '40',
+        'sex' => 'man',
     ],
-    'batoneliai' => [
-        'sokoladiniai' => [
-            [
-                'name' => 'HemaToGen',
-                'price' => 1,
-            ],
-            [
-                'name' => 'Mars',
-                'price' => 0.2,
-            ],
-        ],
-        'aviziniai' => [
-            [
-                'name' => 'Corny',
-                'price' => 1.2,
-            ],
-            [
-                'name' => 'Belvita',
-                'price' => 0.83,
-            ],
-        ],
+    [
+        'name' => 'Milda',
+        'lastname' => 'Mildauskaite',
+        'age' => '28',
+        'sex' => 'woman',
+    ],
+    [
+        'name' => 'Darius',
+        'lastname' => 'Dariauskas',
+        'age' => '40',
+        'sex' => 'man',
+    ],
+    [
+        'name' => 'Skaiste',
+        'lastname' => 'Uzkamante',
+        'age' => '40',
+        'sex' => 'woman',
+    ],
+    [
+        'name' => 'Giedre',
+        'lastname' => 'Miliauskiene',
+        'age' => '38',
+        'sex' => 'woman',
+    ],
+    [
+        'name' => 'Kasparas',
+        'lastname' => 'Dambrauskas',
+        'age' => '22',
+        'sex' => 'man',
     ],
 ];
 
-// Isprintinkite ekrane be cikolo 'Kauke' saldiniu kaina.
-// Isprintinkite ekrane be ciklo 'Mars'.
 
-print $saldainiai['sveriami']['sokoladiniai']['1']['price'] . "<br>"; 
-print $saldainiai['batoneliai']['sokoladiniai']['1']['name']. "<br>";
+//11. Patikrinkite kuriu darbuotoju lytis yra 'woman' ir jaunesni nei 30m.
+// Ju visus duomenis atvaizduokite ekrane sukurdami kortele.
 
-//5. isprintinkite ekrane visu aviziniu batoneliu 'name'.
+// foreach ($darbuotojai as $person){
+//     if($person['sex'] == 'woman' && $person['age'] < 30){
+//       var_dump($person);  
+//     }
+// };
 
-foreach ($saldainiai['batoneliai']['aviziniai'] as $value) {
-    print $value['name']. "<br>";
-};
-//6. isprintinkite ekrane visus ledinukus su ju 'name' ir 'price'
-foreach ($saldainiai['sveriami']['ledinukai'] as $value) {
-    print $value['name'] . ' ' . $value['price']. "<br>";
-};
-//7. sukurkite koda kuris tikrintu masyve esancias saldainiu kainas ir tiek kiek kainu yra
-//float tipo tiek atvaizduokite ekrane '*'.
-foreach ($saldainiai as $key => $value) {
-    foreach ($value as $smth) {
-        foreach ($smth as $item) {
-            if (is_float($item['price'])){
-                print '*';
-            }
-        }
-    };
-    
-};
-//8.Patikrinti ar masyve egzistuoja batonelis 'Mars' jei taip atvaizduokite ekrane
-// batonelio pavadinima h3 tage, kaina h2 tage. 
-$pavadinimas = '';
-$kaina = '';
- 
-foreach($saldainiai as $rusis){
-    foreach($rusis as $rusis2){
-        foreach($rusis2 as $value){
-            if(in_array('Mars', $value)){
-                $pavadinimas = $value['name'];
-                $kaina = $value['price'];
-            }
-        }
+//12. Suskaiciuokite kiek zmoniu yra su lytimi 'man' ir 'age' = 40.
+// Zmogus turi tureti siuos abu parametrus.
+
+$number = 0;
+foreach($darbuotojai as $person){
+    if($person['age'] == 40 && $person['sex'] == 'man'){
+        $number++;
     }
 };
+print "keturiasdesimtmetis vyras yra tiek $number zmoniu" . "<br>";
 
-//9. panaudojus php funkcija suskaiciuoti visus batonelius ir gauta rezultata isvesti i ekrana.
-$batoneliuSkaicius = 0;
+//13. sukurkite random kintamaji nuo kurio priklausys kokius zmones su ju vardais
+// ir amziumi atvazduos ekrane. Random kintamasis turi buti tiesiogiai susietas su amziumi.
+// Jei tokio amziaus zmogaus nera, ekrane atvaizduojamas random sugeneruotas amzius ir uzrasas,
+//'Tokio amziaus darbuotojo nera.'
 
-var_dump(count($saldainiai['batoneliai']));
-
-foreach ($saldainiai['batoneliai'] as $value) {
-    $batoneliuSkaicius += count($value);
+$kintamasis = rand(20, 42);
+$kiekYra = 0;
+$reiksmeNera = '';
+foreach($darbuotojai as $person){
+   if($person['age'] == $kintamasis) {
+        print $person['name'] . $person['age'] . "<br>";
+        $kiekYra++;
+   } else {
+    $reiksmeNera = "Tokio amziaus $kintamasis darbuotojo nera";
+   }
 };
-var_dump($batoneliuSkaicius);
-
-//10. Patikrinti ar masyve turime preke kurios pavadinima 'name' sudarytu 8 simboliai. Jei taip -
-//ekrane ji atvaizduoti, tik pavadinima.
-
-foreach ($saldainiai as $saldumynas) {
-    foreach ($saldumynas as $item) {
-        
-        foreach ($item as $saldainis) {
-            // var_dump(strlen($saldainis['name']));
-            
-            if (strlen($saldainis['name']) == 8) {
-                print $saldainis['name'] . ' cia tas paaskutinis';
-            }
-        }
-    }
+if($kiekYra == 0){
+  print $reiksmeNera;  
 };
+
+
+
+//14. Isimkite is masyvo visus vartotojus kuriu amzius 40m.
+
+foreach($darbuotojai as $person){
+    if($person['age'] == 40){
+        unset($darbuotojai[$person]);
+    } 
+};
+var_dump($darbuotojai);
+
 
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -165,19 +107,17 @@ foreach ($saldainiai as $saldumynas) {
 
 </head>
 <body>
-    <!-- 1.2 uzduotis -->
-    <h1 class="red"><?php print $reiksme; ?></h1>
 
-    <!-- 1.3 uzduotis -->
-    <?php if($number >= 3): ?>   
-        <h3 class="blue">Atostogos</h3>
+<!-- 11 uzduotis -->
+<?php foreach ($darbuotojai as $person): ?>
+    <?php if($person['sex'] == 'woman' && $person['age'] < 30): ?>
+ <div style="height: 200px; width:200px; color: blue; text-align: center; background-color:rgb(180, 179, 179); padding: 20px;">
+    <h2><?php print $person['name'] . ' ' . $person['lastname'] ;?></h2>
+    <h2>Amzius - <?php print $person['age'] ;?></h2>
+    <h2>Lytis - <?php print $person['sex'] ;?></h2>
+ </div>
     <?php endif; ?>
-
-    <!-- 1.8 uzduotis -->
-
-    <h3>Batonelio pavadinimas - <?php print $pavadinimas?></h3>
-    <h2>Batonelio kaina - <?php print $kaina . '€'?></h2>
- 
+    <?php endforeach; ?>
 
 </body>
 </html>
