@@ -29,6 +29,73 @@ error_reporting(E_ALL);
 //     $x++;
 // }
 
+
+$studentai = [
+    [
+        'name' => 'Tomas',
+        'lastname' => 'Tomaitis',
+        'age' => 18,
+        'sex' => 'man'
+    ],
+    [
+        'name' => 'Milda',
+        'lastname' => 'Mildaite',
+        'age' => 45,
+        'sex' => 'woman'
+    ],
+    [
+        'name' => 'Kamile',
+        'lastname' => 'Kamilaite',
+        'age' => 22,
+        'sex' => 'woman'
+    ]
+];
+
+//1. suformuokite nauja masyva kuri sudarytu visu vartotoju vardai.
+$naujasMasyvas1 = [];
+foreach($studentai as $studentas){
+    $naujasMasyvas1[] = $studentas['name'];
+};
+var_dump($naujasMasyvas1);
+
+//2. suformuokite nauja masyva kuri sudarytu visu vartotoju pavardes.
+$naujasMasyvas2 = [];
+foreach($studentai as $studentas){
+    $naujasMasyvas2[] = $studentas['lastname'];
+};
+var_dump($naujasMasyvas2);
+
+//3. suformuokite nauja masyva kurio key butu vardai o value butu pavardes.
+// $naujasMasyvas3 = [];
+// foreach($studentai as $key => $value){
+//     $naujasMasyvas3[] = [
+//         $value['name'] => $value['lastname']
+//     ];
+// };
+// var_dump($naujasMasyvas3);
+
+$combo = array_combine($naujasMasyvas1, $naujasMasyvas2);
+var_dump($combo);
+
+//4. vardu masyva isrykiuokite abeceles tvarka. asort reikejo
+
+sort($naujasMasyvas1);
+var_dump($naujasMasyvas1);
+
+$kitiVardai = [
+    0 => 'Algis',
+    6 => 'Zenonas',
+    9 => 'BAba'
+];
+asort($kitiVardai);
+// asort key nesurikiuoja
+var_dump($kitiVardai);
+
+
+//5. vardu masyva isrykiuokite abeceles tvarka, key turi buti nuo 0 iki ... nuosekliai. sortas
+
+
+
 ?>
 
 <!DOCTYPE html>
