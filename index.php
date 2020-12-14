@@ -69,27 +69,22 @@ print "keturiasdesimtmetis vyras yra tiek $number zmoniu" . "<br>";
 //'Tokio amziaus darbuotojo nera.'
 
 $kintamasis = rand(20, 42);
+// random ne rankiniu budu reiketu o isivest $min ir $max
 $kiekYra = 0;
-$reiksmeNera = '';
 foreach($darbuotojai as $person){
    if($person['age'] == $kintamasis) {
         print $person['name'] . $person['age'] . "<br>";
         $kiekYra++;
-   } else {
-    $reiksmeNera = "Tokio amziaus $kintamasis darbuotojo nera";
    }
 };
 if($kiekYra == 0){
-  print $reiksmeNera;  
+  print "Tokio amziaus $kintamasis darbuotojo nera";  
 };
 
-
-
 //14. Isimkite is masyvo visus vartotojus kuriu amzius 40m.
-
-foreach($darbuotojai as $person){
+foreach($darbuotojai as $key => $person){
     if($person['age'] == 40){
-        unset($darbuotojai[$person]);
+        unset($darbuotojai[$key]);
     } 
 };
 var_dump($darbuotojai);
@@ -108,6 +103,7 @@ var_dump($darbuotojai);
 </head>
 <body>
 
+
 <!-- 11 uzduotis -->
 <?php foreach ($darbuotojai as $person): ?>
     <?php if($person['sex'] == 'woman' && $person['age'] < 30): ?>
@@ -118,6 +114,7 @@ var_dump($darbuotojai);
  </div>
     <?php endif; ?>
     <?php endforeach; ?>
+
 
 </body>
 </html>
