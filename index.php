@@ -56,14 +56,14 @@ $naujasMasyvas1 = [];
 foreach($studentai as $studentas){
     $naujasMasyvas1[] = $studentas['name'];
 };
-var_dump($naujasMasyvas1);
+// var_dump($naujasMasyvas1);
 
 //2. suformuokite nauja masyva kuri sudarytu visu vartotoju pavardes.
 $naujasMasyvas2 = [];
 foreach($studentai as $studentas){
     $naujasMasyvas2[] = $studentas['lastname'];
 };
-var_dump($naujasMasyvas2);
+// var_dump($naujasMasyvas2);
 
 //3. suformuokite nauja masyva kurio key butu vardai o value butu pavardes.
 // $naujasMasyvas3 = [];
@@ -75,12 +75,12 @@ var_dump($naujasMasyvas2);
 // var_dump($naujasMasyvas3);
 
 $combo = array_combine($naujasMasyvas1, $naujasMasyvas2);
-var_dump($combo);
+// var_dump($combo);
 
 //4. vardu masyva isrykiuokite abeceles tvarka. asort reikejo
 
 sort($naujasMasyvas1);
-var_dump($naujasMasyvas1);
+// var_dump($naujasMasyvas1);
 
 $kitiVardai = [
     0 => 'Algis',
@@ -89,10 +89,201 @@ $kitiVardai = [
 ];
 asort($kitiVardai);
 // asort key nesurikiuoja
-var_dump($kitiVardai);
-
+// var_dump($kitiVardai);
 
 //5. vardu masyva isrykiuokite abeceles tvarka, key turi buti nuo 0 iki ... nuosekliai. sortas
+
+
+$gerimai = [
+    'stiprus' => [    
+        'degtine' => [
+            [
+                'pavadinimas' => 'FINLANDIA',
+                'tipas' => 'degtine',
+                'kilmes salis' => 'Suomija',
+                'turis' => 1,
+                'stiprumas' => 40,
+                'kaina' => 16.99, 
+            ],
+            [
+                'pavadinimas' => 'ABSOLUT',
+                'tipas' => 'degtine',
+                'kilmes salis' => 'Svedija',
+                'turis' => 1,
+                'stiprumas' => 40,
+                'kaina' => 15.99, 
+            ]
+
+        ],
+        'brendis' => [
+            [
+                'pavadinimas' => 'STOCK 84',
+                'tipas' => 'brendis',
+                'kilmes salis' => 'Italija',
+                'turis' => 1,
+                'stiprumas' => 38,
+                'kaina' => 17.99, 
+            ],
+            [
+                'pavadinimas' => 'GRAND CAVALIER',
+                'tipas' => 'brendis',
+                'kilmes salis' => 'Latvija',
+                'turis' => 1,
+                'stiprumas' => 38,
+                'kaina' => 15.99, 
+            ]
+        ],
+        'viskis' => [
+            [
+                'pavadinimas' => 'THE NAKED GROUSE',
+                'tipas' => 'viskis',
+                'kilmes salis' => 'Jungtine Karalyste',
+                'turis' => 0.7,
+                'stiprumas' => 40,
+                'kaina' => 29.99,    
+            ],
+            [
+                'pavadinimas' => 'KENTUCKY OWL',
+                'tipas' => 'viskis',
+                'kilmes salis' => 'JAV',
+                'turis' => 0.7,
+                'stiprumas' => 60.5,
+                'kaina' => 239.99,   
+            ]
+        ],
+        'romas' => [
+            [
+                'pavadinimas' => 'BUMBU',
+                'tipas' => 'romas',
+                'kilmes salis' => 'Prancuzija',
+                'turis' => 0.7,
+                'stiprumas' => 35,
+                'kaina' => 33.99, 
+            ],
+            [
+                'pavadinimas' => 'CAPTAIN MORGAN WHITE',
+                'tipas' => 'romas',
+                'kilmes salis' => 'Jamaika',
+                'turis' => 0.7,
+                'stiprumas' => 37.5,
+                'kaina' => 12.99, 
+            ]
+        ],
+    ],
+    'silpni' => [    
+        'sampanas' => [
+            [
+                'pavadinimas' => 'PREMIUS ROSE CREMANT DE BORDEAUX',
+                'tipas' => 'sampanas',
+                'kilmes salis' => 'Prancuzija',
+                'turis' => 0.75,
+                'stiprumas' => 12,
+                'kaina' => 7.99, 
+            ],
+            [
+                'pavadinimas' => 'CASA CHARLIZE BRUT PROSECCO DOC',
+                'tipas' => 'sampanas',
+                'kilmes salis' => 'Italija',
+                'turis' => 0.75,
+                'stiprumas' => 11,
+                'kaina' => 7.99, 
+            ]
+        ],
+        'vynas' => [
+                [
+                    'pavadinimas' => 'BOURGOGNE BLANC CHARDONNAY',
+                    'tipas' => 'vynas',
+                    'rusis' => 'baltas',
+                    'kilmes salis' => 'Prancuzija',
+                    'turis' => 0.75,
+                    'stiprumas' => 13,
+                    'kaina' => 11.99, 
+                ],
+                [
+                    'pavadinimas' => 'ST PINOT GRIGIO DELLA VENEZIE',
+                    'tipas' => 'vynas',
+                    'rusis' => 'raudonas',
+                    'kilmes salis' => 'Prancuzija',
+                    'turis' => 0.75,
+                    'stiprumas' => 12.5,
+                    'kaina' => 5.99,
+                ]
+        ],
+        'sidras' => [
+            [
+                'pavadinimas' => 'KINGSTON PRESS BERRY',
+                'tipas' => 'sidras',
+                'kilmes salis' => 'Jungtine Karalyste',
+                'turis' => 0.5,
+                'stiprumas' => 3,
+                'kaina' => 1.99, 
+            ],
+            [
+                'pavadinimas' => 'MAGNERS IRISH BERRY ',
+                'tipas' => 'sidras',
+                'kilmes salis' => 'Airija',
+                'turis' => 0.33,
+                'stiprumas' => 4,
+                'kaina' => 1.59, 
+            ]  
+        ],
+        'alus' => [
+            [
+                'pavadinimas' => 'CARLSBERG NEFILTRUOTAS',
+                'tipas' => 'alus',
+                'rusis' => 'tamsus',
+                'kilmes salis' => 'Lietuva',
+                'turis' => 0.5,
+                'stiprumas' => 5,
+                'kaina' => 1.25, 
+            ],
+            [
+                'pavadinimas' => 'VOLFAS ENGELMAN NEFILTRUOTAS',
+                'tipas' => 'alus',
+                'rusis' => 'sviesus',
+                'kilmes salis' => 'Lietuva',
+                'turis' => 0.56,
+                'stiprumas' => 5.2,
+                'kaina' => 1.15, 
+            ]    
+        ],
+    ],
+
+];
+
+// var_dump($gerimai);
+
+$manoVynas = [
+    'pavadinimas' => 'PETIT CHABLIS DOMAINE PASSY LE CLOU',
+    'tipas' => 'vynas',
+    'rusis' => 'baltas',
+    'kilmes salis' => 'Prancuzija',
+    'turis' => 0.75,
+    'stiprumas' => 12.5,
+    'kaina' => 13.99, 
+];
+
+
+if ($manoVynas['stiprumas'] < 14){
+    foreach($gerimai['silpni'] as $key => $tipas){
+        
+       if ($key == $manoVynas['tipas']) {
+        $gerimai['silpni'][$key][] = $manoVynas;
+        // var_dump($tipas);
+       }
+    };
+} else {
+    foreach($gerimai['stiprus'] as $key => $tipas){
+        
+        if ($key == $manoVynas['tipas']) {
+            $gerimai['stiprus'][$key][] = $manoVynas;
+        }
+    };
+}
+
+
+var_dump($gerimai['silpni']['vynas']);
+
 
 
 
