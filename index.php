@@ -15,11 +15,9 @@ date_default_timezone_set('Europe/Vilnius');
     <link rel="stylesheet" href="style.css">
 
 </head>
-<body style="background-color: rgb(<?php print rand(0, 255) . ', ' . rand(0, 255) . ', ' . rand(0, 255); ?>);">
+<body>
 
-    <h1 style="font-size: <?php print rand(15, 55); ?>px;">Aš keičiu savo dydį!</h1>
-
-    <p style="color: rgb(<?php print rand(0, 255) . ', ' . rand(0, 255) . ', ' . rand(0, 255); ?>);">Aš keičiu savo spalvą!</p>
+<img style="height: 200px; width: 200px;" src="<?php print 'images/dice' . rand(1, 6) . '.png'; ?>" alt="">
 
 
 
