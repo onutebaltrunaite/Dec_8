@@ -2,7 +2,7 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
+date_default_timezone_set('Europe/Vilnius');
 
 ?>
 
@@ -11,13 +11,13 @@ error_reporting(E_ALL);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php print 'Aš, ' . date('l') . ' ir PHP'; ?></title>
+    <title>PHP lydės ir <?php print date('Y:m:d', strtotime('+1 day')) ?></title>
     <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
-    <h1><b>Vardas</b>- HTML <?php print 'ir PHP'; ?> asas jau nuo <?php print date('Y') . ' metų.'; ?></h1>
-    <p>Viskas prasidėjo <?php print date('m') . ' mėnesio ' . date('d') . ' dieną!'; ?></p>
+    <h1><b>Vardas</b>- PHP su manim buvo ir <?php print date('H', strtotime('-1 hour')) . ' valandą!'; ?> </h1>
+    <p><?php print date('Y', strtotime('+1 year')); ?> ne už kalnų!</p>
 
 
 
