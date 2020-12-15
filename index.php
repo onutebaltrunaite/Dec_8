@@ -4,49 +4,29 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 date_default_timezone_set('Europe/Vilnius');
 
-$money = rand(1, 100);
-$beer_price = 4.5;
-$beers_per_night = rand(1, 15);
 
-$money_left = $money;
+$grizai_velai = rand(0, 1);
+$grizai_isgeres = rand(0, 1);
 
-$alus = 0;
-for ($x = 1; $x <= $beers_per_night; $x++){
-    if ($money_left >= $beer_price){
-        $money_left -= $beer_price;
-        $alus++; 
-    } else {
-    break;
-    }
-};
+$abuBlogi = null;
+$abuGeri = null;
+
 
 $reiksme = '';
 
-if ($alus >= 10 && $alus < 12 && rand(1, 2) == 1){
-    $reiksme = 'Pamete';
-} else {
-    $reiksme = 'Nepamete';  
-};
-
-
-$skaicius = rand(1, 10);
-
-if ($alus >= 12 && $alus < 15){
-    if($skaicius == 1 || $skaicius == 2 || $skaicius == 3 ){
-        $reiksme = 'Nepamete';   
+if($grizai_velai){
+    if($grizai_isgeres){
+        $reiksme = 'Isgeres ir velai'; 
     } else {
-        $reiksme = 'Pamete';
+        $reiksme = 'Tik velai'; 
+    }
+} else {
+    if($grizai_isgeres){
+        $reiksme = 'Tik isgeres';   
+    } else {
+        $reiksme = 'Nieko nepadarei'; 
     }
 };
-
-
-
-if ($alus >= 15){
-    $reiksme = 'Pamete';
-};
-
-
-
 
 ?>
 
@@ -59,32 +39,21 @@ if ($alus >= 15){
     <link rel="stylesheet" href="style.css">
 </head>
 <style>
-    .Pamete {
-        background-image: url(images/pamete.jpg);
-    }
-    .Nepamete {
-        background-image: url(images/nepamete.png); 
-    }
+
 </style>
 
 <body>
 
-<h1>Studentu penktadienis</h1>
-<ul>
-    <li><?php print 'Aliosa turejo ' . $money . ' pinigu.'; ?> </li>
-    <li><?php print 'Isgere ' . $alus . ' alaus.'; ?> </li> 
-    <li><?php print 'Grizinejo namo su ' . $money_left . ' pinigu.'; ?></li>
+<h1>Buitine skaiciuokle</h1>
 
-    <li><?php print $reiksme . ' pinigine/es.'; ?></li>
+<h2>Situacija: Grizai <?php print $reiksme; ?></h2>
 
-</ul> 
-
-    <?php if($reiksme == 'Pamete'): ?>
-        <div class="Pamete" style="height: 200px; width: 200px; background-size: cover;"></div>
-    <?php else: ?>
-        <div class="Nepamete" style="height: 200px; width: 200px; background-size: cover;"></div>
-    <?php endif;?>
-
+<?php if($reiksme == 'Isgeres ir velai'): ?>
+    <h3>Miegosi ant sofos!</h3>
+    <img src="https://static.thenounproject.com/png/1273439-200.png" alt="">
+<?php else: ?>
+    <h3>Nemiegosi ant sofos</h3>
+<?php endif; ?>
 
 </body>
 </html>
