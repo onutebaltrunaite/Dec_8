@@ -4,13 +4,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 date_default_timezone_set('Europe/Vilnius');
 
-$distance = rand(100, 500); //km
-$consumption = 7.5;         // 1/100km
-$price_1 = 1.3;             // Eur/1
-
-$fuel_total = $distance / 100 * $consumption;
-$price_trip = $fuel_total * $price_1;
-
+$sunny = rand(0, 1);
 ?>
 
 <!DOCTYPE html>
@@ -26,13 +20,11 @@ $price_trip = $fuel_total * $price_1;
 
 <body>
 
-<h1>Kelionės skaičiuoklė</h1>
-<ul>
-    <li>Nuvažiuota distancija: <?php print $distance; ?></li>
-    <li>Sunaudota <?php print $fuel_total; ?> l. kuro.</li>
-    <li>Kaina: <?php print $price_trip; ?> pinigų.</li>
-</ul>
-
+<?php if ($sunny): ?>
+    <img style="height: 200px; width: 200px;" src="https://i.pinimg.com/originals/db/d9/0d/dbd90d367167db3967af692343915f5d.png" alt="">
+<?php else: ?>
+    <img style="height: 200px; width: 200px;" src="https://s7d2.scene7.com/is/image/TWCNews/heavy_rain_jpg-6" alt="">
+<?php endif; ?>
 
 </body>
 </html>
