@@ -11,14 +11,15 @@ date_default_timezone_set('Europe/Vilnius');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHP lydės ir <?php print date('Y', strtotime('+' . rand(0, 10) . 'year')); ?></title>
+    <title>PAVADINIMAS</title>
     <link rel="stylesheet" href="style.css">
 
 </head>
-<body>
-    <h1>Vardas - galbūt turėsiu <?php print rand(0, 5); ?> vaikų! </h1>
+<body style="background-color: rgb(<?php print rand(0, 255) . ', ' . rand(0, 255) . ', ' . rand(0, 255); ?>);">
 
-    <p>D. Trump'as nebebus prezidentu: <?php print date('Y:m:d', strtotime('+' . rand(2, 10) . 'years')); ?></p>
+    <h1 style="font-size: <?php print rand(15, 55); ?>px;">Aš keičiu savo dydį!</h1>
+
+    <p style="color: rgb(<?php print rand(0, 255) . ', ' . rand(0, 255) . ', ' . rand(0, 255); ?>);">Aš keičiu savo spalvą!</p>
 
 
 
