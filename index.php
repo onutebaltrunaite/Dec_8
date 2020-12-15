@@ -4,12 +4,11 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 date_default_timezone_set('Europe/Vilnius');
 
+$distance = rand(1, 50000); //km
+$speed_light = 300000;      // m/s
+$speed_sound = 333;         // m/s
 
-$page = $_SERVER['PHP_SELF'];
-$sec = "1";
-header("Refresh: $sec; url=$page");
-
-
+$delay = ($distance * 1000 / $speed_sound) - ($distance * 1000 / $speed_light);
 ?>
 
 <!DOCTYPE html>
@@ -21,23 +20,18 @@ header("Refresh: $sec; url=$page");
     <link rel="stylesheet" href="style.css">
 </head>
 <style>
-    .kvadratas {
-        background-image: url(images/kvadratas.png);
-    }
-    .apskritimas {
-        background-image: url(images/apskritimas.png);
-    }
+
 </style>
 
 <body>
 
-<?php if(date('s') % 2 == 0): ?>
-    <div style="height: 200px; width: 200px; background-size: cover;" class="apskritimas"></div>
-    <?php else: ?>
-        <div style="height: 200px; width: 200px; background-size: cover;" class="kvadratas"></div>
-    <?php endif; ?>
+<h1>Garsas VS Sviesos</h1>
+<ul>
+    <li><?php print 'Eksperimento distancija: ' . $distance; ?> </li>
+    <li><?php print 'Garsas nuo sviesos atsiliks sekundemis: ' . $delay; ?> </li>
+</ul>
 
-<div><?php print date('s'); ?></div>
+
 
 </body>
 </html>
