@@ -5,9 +5,29 @@ error_reporting(E_ALL);
 date_default_timezone_set('Europe/Vilnius');
 
 
-$kas = ['Inspektorius', 'Teroristas', 'Suniukas'];
-$kaveikia = ['geria', 'perka', 'buciuoja'];
-$ka = ['viski', 'vyno buteli', 'langu valikli'];
+$x = rand(1, 10);
+
+for ($y = 0; $y < $x; $y++){
+    // print "tai yra $y ciklas" . '<br>';
+    // var_dump("tai yra $y ciklas" . '<br>');
+};
+
+
+for ($y = 0; $y < 12; $y++){
+    // print date('F', strtotime('+' . $y . 'month')) . '<br>';
+};
+
+$months = 12;
+$wallet = 1000;
+$month_icome = 700;
+$month_expenses = 0;
+
+for ($x = 0; $x < $months; $x++){
+    $wallet += $month_icome;
+    $month_expenses = rand(100, 500);
+    $wallet -= $month_expenses;
+};
+
 
 
 ?>
@@ -26,8 +46,8 @@ $ka = ['viski', 'vyno buteli', 'langu valikli'];
 
 <body>
 
-<h1>Delfi.lt Naujienos</h1>
-<h2><?php print $kas[rand(0,2)] . ' ' . $kaveikia[rand(0,2)] . ' ' . $ka[rand(0,2)]; ?></h2>
+<h1>Wallet Forecast</h1>
+<h2><?php print 'Po ' . $months . ' menesiu ' . 'prognozuojamas likutis: ' . $wallet; ?></h2>
 
 
 
