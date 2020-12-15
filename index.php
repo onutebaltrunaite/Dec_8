@@ -8,9 +8,7 @@ $money = rand(1, 100);
 $beer_price = 4.5;
 $beers_per_night = rand(1, 15);
 
-
 $money_left = $money;
-
 
 $alus = 0;
 for ($x = 1; $x <= $beers_per_night; $x++){
@@ -21,7 +19,32 @@ for ($x = 1; $x <= $beers_per_night; $x++){
     break;
     }
 };
- 
+
+$reiksme = '';
+
+if ($alus >= 10 && $alus < 12 && rand(1, 2) == 1){
+    $reiksme = 'Pamete pinigine';
+} else {
+    $reiksme = 'Nepamete pinigines';  
+};
+
+
+$skaicius = rand(1, 10);
+
+if ($alus >= 12 && $alus < 15){
+    if($skaicius == 1 || $skaicius == 2 || $skaicius == 3 ){
+        $reiksme = 'Nepamete pinigines';   
+    } else {
+        $reiksme = 'Pamete pinigine';
+    }
+};
+
+
+
+if ($alus >= 15){
+    $reiksme = 'Pamete pinigine';
+};
+
 
 
 
@@ -46,6 +69,8 @@ for ($x = 1; $x <= $beers_per_night; $x++){
     <li><?php print 'Aliosa turejo ' . $money . ' pinigu.'; ?> </li>
     <li><?php print 'Isgere ' . $alus . ' alaus.'; ?> </li> 
     <li><?php print 'Grizinejo namo su ' . $money_left . ' pinigu.'; ?></li>
+
+    <li><?php print $reiksme; ?></li>
 </ul> 
 
 
