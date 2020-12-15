@@ -5,28 +5,10 @@ error_reporting(E_ALL);
 date_default_timezone_set('Europe/Vilnius');
 
 
-$grizai_velai = rand(0, 1);
-$grizai_isgeres = rand(0, 1);
+$kas = ['Inspektorius', 'Teroristas', 'Suniukas'];
+$kaveikia = ['geria', 'perka', 'buciuoja'];
+$ka = ['viski', 'vyno buteli', 'langu valikli'];
 
-$abuBlogi = null;
-$abuGeri = null;
-
-
-$reiksme = '';
-
-if($grizai_velai){
-    if($grizai_isgeres){
-        $reiksme = 'Isgeres ir velai'; 
-    } else {
-        $reiksme = 'Tik velai'; 
-    }
-} else {
-    if($grizai_isgeres){
-        $reiksme = 'Tik isgeres';   
-    } else {
-        $reiksme = 'Nieko nepadarei'; 
-    }
-};
 
 ?>
 
@@ -44,16 +26,10 @@ if($grizai_velai){
 
 <body>
 
-<h1>Buitine skaiciuokle</h1>
+<h1>Delfi.lt Naujienos</h1>
+<h2><?php print $kas[rand(0,2)] . ' ' . $kaveikia[rand(0,2)] . ' ' . $ka[rand(0,2)]; ?></h2>
 
-<h2>Situacija: Grizai <?php print $reiksme; ?></h2>
 
-<?php if($reiksme == 'Isgeres ir velai'): ?>
-    <h3>Miegosi ant sofos!</h3>
-    <img src="https://static.thenounproject.com/png/1273439-200.png" alt="">
-<?php else: ?>
-    <h3>Nemiegosi ant sofos</h3>
-<?php endif; ?>
 
 </body>
 </html>
