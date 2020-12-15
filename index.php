@@ -4,7 +4,12 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 date_default_timezone_set('Europe/Vilnius');
 
-$sunny = rand(0, 1);
+
+$page = $_SERVER['PHP_SELF'];
+$sec = "1";
+header("Refresh: $sec; url=$page");
+
+
 ?>
 
 <!DOCTYPE html>
@@ -16,15 +21,23 @@ $sunny = rand(0, 1);
     <link rel="stylesheet" href="style.css">
 </head>
 <style>
+    .kvadratas {
+        background-image: url(images/kvadratas.png);
+    }
+    .apskritimas {
+        background-image: url(images/apskritimas.png);
+    }
 </style>
 
 <body>
 
-<?php if ($sunny): ?>
-    <img style="height: 200px; width: 200px;" src="https://i.pinimg.com/originals/db/d9/0d/dbd90d367167db3967af692343915f5d.png" alt="">
-<?php else: ?>
-    <img style="height: 200px; width: 200px;" src="https://s7d2.scene7.com/is/image/TWCNews/heavy_rain_jpg-6" alt="">
-<?php endif; ?>
+<?php if(date('s') % 2 == 0): ?>
+    <div style="height: 200px; width: 200px; background-size: cover;" class="apskritimas"></div>
+    <?php else: ?>
+        <div style="height: 200px; width: 200px; background-size: cover;" class="kvadratas"></div>
+    <?php endif; ?>
+
+<div><?php print date('s'); ?></div>
 
 </body>
 </html>
