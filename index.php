@@ -4,11 +4,27 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 date_default_timezone_set('Europe/Vilnius');
 
-$distance = rand(1, 50000); //km
-$speed_light = 300000;      // m/s
-$speed_sound = 333;         // m/s
+$money = rand(1, 100);
+$beer_price = 4.5;
+$beers_per_night = rand(1, 15);
 
-$delay = ($distance * 1000 / $speed_sound) - ($distance * 1000 / $speed_light);
+
+$money_left = $money;
+
+
+$alus = 0;
+for ($x = 1; $x <= $beers_per_night; $x++){
+    if ($money_left >= $beer_price){
+        $money_left -= $beer_price;
+        $alus++; 
+    } else {
+    break;
+    }
+};
+ 
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -25,11 +41,12 @@ $delay = ($distance * 1000 / $speed_sound) - ($distance * 1000 / $speed_light);
 
 <body>
 
-<h1>Garsas VS Sviesos</h1>
+<h1>Studentu penktadienis</h1>
 <ul>
-    <li><?php print 'Eksperimento distancija: ' . $distance; ?> </li>
-    <li><?php print 'Garsas nuo sviesos atsiliks sekundemis: ' . $delay; ?> </li>
-</ul>
+    <li><?php print 'Aliosa turejo ' . $money . ' pinigu.'; ?> </li>
+    <li><?php print 'Isgere ' . $alus . ' alaus.'; ?> </li> 
+    <li><?php print 'Grizinejo namo su ' . $money_left . ' pinigu.'; ?></li>
+</ul> 
 
 
 
