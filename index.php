@@ -23,9 +23,9 @@ for ($x = 1; $x <= $beers_per_night; $x++){
 $reiksme = '';
 
 if ($alus >= 10 && $alus < 12 && rand(1, 2) == 1){
-    $reiksme = 'Pamete pinigine';
+    $reiksme = 'Pamete';
 } else {
-    $reiksme = 'Nepamete pinigines';  
+    $reiksme = 'Nepamete';  
 };
 
 
@@ -33,16 +33,16 @@ $skaicius = rand(1, 10);
 
 if ($alus >= 12 && $alus < 15){
     if($skaicius == 1 || $skaicius == 2 || $skaicius == 3 ){
-        $reiksme = 'Nepamete pinigines';   
+        $reiksme = 'Nepamete';   
     } else {
-        $reiksme = 'Pamete pinigine';
+        $reiksme = 'Pamete';
     }
 };
 
 
 
 if ($alus >= 15){
-    $reiksme = 'Pamete pinigine';
+    $reiksme = 'Pamete';
 };
 
 
@@ -59,7 +59,12 @@ if ($alus >= 15){
     <link rel="stylesheet" href="style.css">
 </head>
 <style>
-
+    .Pamete {
+        background-image: url(images/pamete.jpg);
+    }
+    .Nepamete {
+        background-image: url(images/nepamete.png); 
+    }
 </style>
 
 <body>
@@ -70,9 +75,15 @@ if ($alus >= 15){
     <li><?php print 'Isgere ' . $alus . ' alaus.'; ?> </li> 
     <li><?php print 'Grizinejo namo su ' . $money_left . ' pinigu.'; ?></li>
 
-    <li><?php print $reiksme; ?></li>
+    <li><?php print $reiksme . ' pinigine/es.'; ?></li>
+
 </ul> 
 
+    <?php if($reiksme == 'Pamete'): ?>
+        <div class="Pamete" style="height: 200px; width: 200px; background-size: cover;"></div>
+    <?php else: ?>
+        <div class="Nepamete" style="height: 200px; width: 200px; background-size: cover;"></div>
+    <?php endif;?>
 
 
 </body>
