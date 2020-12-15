@@ -26,17 +26,20 @@ date_default_timezone_set('Europe/Vilnius');
 
 
 
-    <?php for ($x = 1; $x <= 5; $x++): ?>
+    <?php for ($x = 1; $x <= 10; $x++): ?>
+        <?php if($x % 2 != 0): ?>
         <div style="height: 100px; width: 100px; background-size: cover; margin: 5px; border: 1px solid black; padding: 5px;" class="piestukas"></div>
         <div><?php print $x; ?></div>
+    <?php endif; ?>
     <?php endfor; ?>
 
-    <?php for ($x = 1, $y = 5; $x <= 5; $x++, $y-- ): ?>
+    <?php for ($x = 1; $x <= 5; $x++): ?>
+        <?php if($x !== 3): ?>
         <div style="height: 100px; width: 100px; background-size: cover; margin: 5px; border: 1px solid black; padding: 5px;" class="piestukas"></div>
-        <div><?php print $y; ?></div>
+        <div><?php print $x; ?></div>
+    <?php endif; ?>
     <?php endfor; ?>
 
 
-    
 </body>
 </html>
