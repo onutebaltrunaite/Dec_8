@@ -15,9 +15,31 @@ date_default_timezone_set('Europe/Vilnius');
     <link rel="stylesheet" href="style.css">
 
 </head>
+<style>
+.dice1 {
+    background-image: url(images/dice1.png);
+    
+}
+.dice2 {
+    background-image: url(images/dice2.png);
+}
+.dice3 {
+    background-image: url(images/dice3.png);
+}
+.dice4 {
+    background-image: url(images/dice4.png);
+}
+.dice5 {
+    background-image: url(images/dice5.png);
+}
+.dice6 {
+    background-image: url(images/dice6.png);
+}
+</style>
+
 <body>
 
-<img style="height: 200px; width: 200px;" src="<?php print 'images/dice' . rand(1, 6) . '.png'; ?>" alt="">
+<div style="height: 200px; width: 200px; background-size: cover;" class="dice<?php print rand(1, 6); ?>"></div>
 
 
 
