@@ -18,14 +18,22 @@ for ($y = 0; $y < 12; $y++){
 };
 
 $months = 12;
-$wallet = 1000;
+$wallet = 100;
 $month_icome = 700;
 $month_expenses = 0;
 
-for ($x = 0; $x < $months; $x++){
-    $wallet += $month_icome;
-    $month_expenses = rand(100, 500);
-    $wallet -= $month_expenses;
+$lastmonth = 0;
+
+for ($x = 1; $x <= $months; $x++){
+    if ($wallet > 0){
+        $wallet += $month_icome;
+        $month_expenses = rand(500, 900);
+        $wallet -= $month_expenses; 
+    } else {
+        $lastmonth = $x;
+        break;
+    }
+
 };
 
 
@@ -49,6 +57,9 @@ for ($x = 0; $x < $months; $x++){
 <h1>Wallet Forecast</h1>
 <h2><?php print 'Po ' . $months . ' menesiu ' . 'prognozuojamas likutis: ' . $wallet; ?></h2>
 
+<?php if($wallet < 0): ?>
+<h2>Atsargiai, <?php print $lastmonth; ?> menesi gali baigtis pinigai!</h2>
+<?php endif; ?>
 
 
 </body>
