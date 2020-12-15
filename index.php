@@ -4,9 +4,12 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 date_default_timezone_set('Europe/Vilnius');
 
-$page = $_SERVER['PHP_SELF'];
-$sec = "1";
-header("Refresh: $sec; url=$page");
+
+$string = 'Labas labas labas';
+$int = 12;
+$bool = true;
+$null = null;
+
 ?>
 
 <!DOCTYPE html>
@@ -24,10 +27,12 @@ header("Refresh: $sec; url=$page");
 
 <body>
 
-<img style="width: <?php print date('s') . '0'; ?>px;" src="images/bomb.jpg" alt="">
-<div><?php print date('s');?></div>
-
-
+<ul>
+    <li><?php print $string; ?></li>
+    <li><?php print $int; ?></li>
+    <li><?php print $bool; ?></li>
+    <li><?php print $null; ?></li>
+</ul>
 
 </body>
 </html>
