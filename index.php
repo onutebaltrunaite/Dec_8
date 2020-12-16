@@ -5,25 +5,10 @@ error_reporting(E_ALL);
 date_default_timezone_set('Europe/Vilnius');
 
 
-$kates = rand(1, 3);
-$sunys = rand(1, 3);
-// $pavyko = rand(0, 1);
-$katasuniai = 0;
-
-
-for ($y = 0; $y < $sunys; $y++) {
-    for ($x = 0; $x < $kates; $x++){
-        $pavyko = rand(0, 1);
-        var_dump($pavyko);
-        if($pavyko){
-            $katasuniai++;
-        }
-    } 
-};
-
-
-
 ?>
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,28 +19,40 @@ for ($y = 0; $y < $sunys; $y++) {
     <link rel="stylesheet" href="style.css">
 </head>
 <style>
-
+        .container {
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
+        .pixel {
+            width: 1px;
+            height: 1px;
+            background-color: black;
+            position: absolute;
+        }
 </style>
 
 <body>
 
-<h1>Katasuniu iseiga</h1>
-
-<h2>Dalyvavo <?php print $kates; ?> kates ir <?php print $sunys; ?> sunys.</h2>
-
-<h3>Katasuniu iseiga <?php print $katasuniai; ?></h3>
-
-
-
-
-
-
-
-
-
+<div class="container">
+    <?php for ($x = 0, $y = 0.1 * ($x - 100) ** 2; $x < 200; $x += 0.1, $y = 0.1 * ($x - 100) ** 2): ?>
+        <?php if ($y < 200): ?>
+            <div class="pixel" style="
+                    left: <?php print $x; ?>px;
+                    bottom: <?php print $y; ?>px;
+                    "></div>
+        <?php endif; ?>
+    <?php endfor; ?>
+</div>
 
 
 
 
 </body>
 </html>
+
+
+
+
+
+
