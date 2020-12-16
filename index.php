@@ -24,21 +24,13 @@ date_default_timezone_set('Europe/Vilnius');
 
 <body>
 
-
-
+<?php for ($y = 1; $y <= 2; $y++): ?>
+<div style="display: flex; border: 3px solid blue; margin: 25px;">
     <?php for ($x = 1; $x <= 10; $x++): ?>
-        <?php if($x % 2 != 0): ?>
         <div style="height: 100px; width: 100px; background-size: cover; margin: 5px; border: 1px solid black; padding: 5px;" class="piestukas"></div>
-        <div><?php print $x; ?></div>
-    <?php endif; ?>
     <?php endfor; ?>
-
-    <?php for ($x = 1; $x <= 5; $x++): ?>
-        <?php if($x !== 3): ?>
-        <div style="height: 100px; width: 100px; background-size: cover; margin: 5px; border: 1px solid black; padding: 5px;" class="piestukas"></div>
-        <div><?php print $x; ?></div>
-    <?php endif; ?>
-    <?php endfor; ?>
+</div>
+<?php endfor; ?>
 
 
 </body>
