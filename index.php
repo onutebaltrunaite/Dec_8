@@ -5,6 +5,23 @@ error_reporting(E_ALL);
 date_default_timezone_set('Europe/Vilnius');
 
 
+$kates = rand(1, 3);
+$sunys = rand(1, 3);
+// $pavyko = rand(0, 1);
+$katasuniai = 0;
+
+
+for ($y = 0; $y < $sunys; $y++) {
+    for ($x = 0; $x < $kates; $x++){
+        $pavyko = rand(0, 1);
+        var_dump($pavyko);
+        if($pavyko){
+            $katasuniai++;
+        }
+    } 
+};
+
+
 
 ?>
 
@@ -17,20 +34,27 @@ date_default_timezone_set('Europe/Vilnius');
     <link rel="stylesheet" href="style.css">
 </head>
 <style>
-.piestukas {
-    background-image: url('images/pencil.png')
-}
+
 </style>
 
 <body>
 
-<?php for ($y = 1; $y <= 2; $y++): ?>
-<div style="display: flex; border: 3px solid blue; margin: 25px;">
-    <?php for ($x = 1; $x <= 10; $x++): ?>
-        <div style="height: 100px; width: 100px; background-size: cover; margin: 5px; border: 1px solid black; padding: 5px;" class="piestukas"></div>
-    <?php endfor; ?>
-</div>
-<?php endfor; ?>
+<h1>Katasuniu iseiga</h1>
+
+<h2>Dalyvavo <?php print $kates; ?> kates ir <?php print $sunys; ?> sunys.</h2>
+
+<h3>Katasuniu iseiga <?php print $katasuniai; ?></h3>
+
+
+
+
+
+
+
+
+
+
+
 
 
 </body>
