@@ -5,10 +5,16 @@ error_reporting(E_ALL);
 date_default_timezone_set('Europe/Vilnius');
 
 
+
+
+var_dump($_POST);
+// var_dump($_GET);
+
+foreach($_POST as $item){
+    
+    print "<h3> $item </h3>";
+}
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,32 +25,32 @@ date_default_timezone_set('Europe/Vilnius');
     <link rel="stylesheet" href="style.css">
 </head>
 <style>
-        .container {
-            width: 200px;
-            height: 200px;
-            position: relative;
-        }
-        .pixel {
-            width: 1px;
-            height: 1px;
-            background-color: black;
-            position: absolute;
-        }
+
 </style>
 
 <body>
 
-<div class="container">
-    <?php for ($x = 0, $y = 0.1 * ($x - 100) ** 2; $x < 200; $x += 0.1, $y = 0.1 * ($x - 100) ** 2): ?>
-        <?php if ($y < 200): ?>
-            <div class="pixel" style="
-                    left: <?php print $x; ?>px;
-                    bottom: <?php print $y; ?>px;
-                    "></div>
-        <?php endif; ?>
-    <?php endfor; ?>
-</div>
 
+<form action="" method="post">
+    <input type="text" placeholder="vardas" name="user_name">
+    <input type="text" placeholder="pavarde" name="user_surname">
+    <input type="number" placeholder="telefonas" name="user_mobile">
+        <select name="klase" id="klase">
+            <option value="Zirafos">Zirafos</option>
+            <option value="Makakos">Makakos</option>
+            <option value="Tarakonai">Tarakonai</option>
+        </select>
+    <input type="submit" value="pateikti">
+</form>
+
+
+<div style="height: 200px; width: 200px; border: 3px solid black; margin: 25px;text-align: center;">
+    <h3><?php print $_POST['user_name']; ?></h3>
+    <h3><?php print $_POST['user_surname']; ?></h3>
+    <h3><?php print $_POST['user_mobile']; ?></h3>
+    <h3><?php print $_POST['klase']; ?></h3>
+    
+</div>
 
 
 

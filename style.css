@@ -1,4 +1,5 @@
 a {
     display: flex;
     border: 3px solid blue;
+    text-align: center;
 }
