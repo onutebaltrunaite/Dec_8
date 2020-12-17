@@ -14,6 +14,12 @@ var_dump($_POST);
 //     print "<h3> $item </h3>";
 // }
 
+$array = [
+    'sex' => ['Woman', 'Man']
+];
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -32,34 +38,16 @@ var_dump($_POST);
 
 
 <form action="" method="post">
-    <input type="text" placeholder="vardas" name="user_name">
-    <input type="text" placeholder="pavarde" name="user_surname">
-    <input type="number" placeholder="telefonas" name="user_mobile">
-        <select name="klase" id="klase">
-            <option value="Zirafos">Zirafos</option>
-            <option value="Makakos">Makakos</option>
-            <option value="Tarakonai">Tarakonai</option>
-        </select>
-    <input type="submit" name="mygtukas" value="pateikti">
+    <select name="sex" id="">
+        <option value="0">Woman</option>
+        <option value="1">Man</option>
+    </select>
+    <input type="submit" name="mygtukas" value="siusti">
 </form>
 
 <section>
-    <div style="height: 200px; width: 200px; border: 3px solid black; margin: 25px;text-align: center;">
-        <!-- <h3><?php print $_POST['user_name']; ?></h3>
-        <h3><?php print $_POST['user_surname']; ?></h3>
-        <h3><?php print $_POST['user_mobile']; ?></h3>
-        <h3><?php print $_POST['klase']; ?></h3> -->
-
-        <?php foreach($_POST as $item): ?>
-        <h3><?php print $item; ?></h3>
-        <?php endforeach; ?>
-
-    </div>
+    <h3><?php print $array['sex'][$_POST['sex']]; ?></h3>
 </section>
-
-
-
-
 
 </body>
 </html>
