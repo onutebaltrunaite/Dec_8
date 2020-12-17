@@ -6,14 +6,14 @@ date_default_timezone_set('Europe/Vilnius');
 
 
 
-
+unset($_POST['mygtukas']);
 var_dump($_POST);
 // var_dump($_GET);
 
-foreach($_POST as $item){
-    
-    print "<h3> $item </h3>";
-}
+// foreach($_POST as $item){
+//     print "<h3> $item </h3>";
+// }
+
 ?>
 
 <!DOCTYPE html>
@@ -40,17 +40,24 @@ foreach($_POST as $item){
             <option value="Makakos">Makakos</option>
             <option value="Tarakonai">Tarakonai</option>
         </select>
-    <input type="submit" value="pateikti">
+    <input type="submit" name="mygtukas" value="pateikti">
 </form>
 
+<section>
+    <div style="height: 200px; width: 200px; border: 3px solid black; margin: 25px;text-align: center;">
+        <!-- <h3><?php print $_POST['user_name']; ?></h3>
+        <h3><?php print $_POST['user_surname']; ?></h3>
+        <h3><?php print $_POST['user_mobile']; ?></h3>
+        <h3><?php print $_POST['klase']; ?></h3> -->
 
-<div style="height: 200px; width: 200px; border: 3px solid black; margin: 25px;text-align: center;">
-    <h3><?php print $_POST['user_name']; ?></h3>
-    <h3><?php print $_POST['user_surname']; ?></h3>
-    <h3><?php print $_POST['user_mobile']; ?></h3>
-    <h3><?php print $_POST['klase']; ?></h3>
-    
-</div>
+        <?php foreach($_POST as $item): ?>
+        <h3><?php print $item; ?></h3>
+        <?php endforeach; ?>
+
+    </div>
+</section>
+
+
 
 
 
