@@ -21,13 +21,13 @@ if (!empty($_POST)){
 
 $file = fopen("text.txt", "r");
 $stringas = fgets($file);
+$stringas = substr_replace($stringas, "", -2);
 var_dump($stringas);
 fclose($file);
 
+$array = explode(', ', $stringas);
+var_dump($array);
 
-foreach($stringas as $value){
-    var_dump($value);
-};
 
 
 // unset($_POST['mygtukas']);
@@ -60,17 +60,39 @@ th, td {
     <input type="text" placeholder="Vardas..." name="vardas">   
     <input type="submit" name="mygtukas" value="siusti">
 </form>
-<!-- <table>
-    <tr>
-        <th>vardas</th>
-    </tr>
-    <tr>
-        <?php foreach($stringas as $item): ?>
-            <td><?php print $item; ?></td>
-        <?php endforeach; ?>
-    </tr>
-</table> -->
+    <table>
+        <tr>
+            <th>vardas</th>
+        </tr>
 
+        <?php foreach($array as $item): ?>
+        <tr>
+            <td><?php print $item; ?></td>
+        </tr>
+        <?php endforeach; ?>
+    </table>
+
+
+
+
+    <table style="margin-top: 50px;">
+    <tr>
+        <th>Gyvuno rusis</th>
+        <th>Vardas</th>
+        <th>Amzius</th>
+        <th>Veisle</th>
+    </tr>
+
+    <!-- <?php foreach($augintiniai as $value): ?>
+        <tr>
+            <?php foreach($value as $morevalue): ?>
+                <td>
+                    <?php print $morevalue; ?>
+                </td>
+            <?php endforeach; ?>
+        </tr>
+    <?php endforeach; ?> -->
+</table>
 
 </body>
 </html>
