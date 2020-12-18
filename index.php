@@ -14,18 +14,18 @@ date_default_timezone_set('Europe/Vilnius');
 
 if (!empty($_POST)){
     $con = fopen("text.txt", "a");
-    fwrite($con, $_POST['vardas'] . ', ');
+    fwrite($con, $_POST['rusis'] . ', ' . $_POST['vardas'] . ', ' . $_POST['amzius'] . ', ' . $_POST['veisle'] . '-');
     fclose($con);    
 }
 
 
 $file = fopen("text.txt", "r");
 $stringas = fgets($file);
-$stringas = substr_replace($stringas, "", -2);
-var_dump($stringas);
+$stringas = substr_replace($stringas, "", -1);
+// var_dump($stringas);
 fclose($file);
 
-$array = explode(', ', $stringas);
+$array = explode('-', $stringas);
 var_dump($array);
 
 
@@ -56,23 +56,15 @@ th, td {
 </style>
 
 <body>
+
 <form action="" method="post">
-    <input type="text" placeholder="Vardas..." name="vardas">   
+    <input type="text" placeholder="Gyvuno rusis..." name="rusis">   
+    <input type="text" placeholder="Gyvuno vardas..." name="vardas">   
+    <input type="text" placeholder="Gyvuno amzius..." name="amzius">   
+    <input type="text" placeholder="Gyvuno veisle..." name="veisle">   
+
     <input type="submit" name="mygtukas" value="siusti">
 </form>
-    <table>
-        <tr>
-            <th>vardas</th>
-        </tr>
-
-        <?php foreach($array as $item): ?>
-        <tr>
-            <td><?php print $item; ?></td>
-        </tr>
-        <?php endforeach; ?>
-    </table>
-
-
 
 
     <table style="margin-top: 50px;">
@@ -83,16 +75,19 @@ th, td {
         <th>Veisle</th>
     </tr>
 
-    <!-- <?php foreach($augintiniai as $value): ?>
+    <?php foreach($array as $value): ?>
+    <?php $new = explode(', ', $value);?>
+    <?php var_dump($new); ?>
         <tr>
-            <?php foreach($value as $morevalue): ?>
-                <td>
-                    <?php print $morevalue; ?>
-                </td>
-            <?php endforeach; ?>
+        <?php foreach ($new as $newData): ?>
+            <td>
+                <?php print $newData; ?>
+            </td>
+        <?php endforeach; ?>
         </tr>
-    <?php endforeach; ?> -->
-</table>
+    <?php endforeach; ?>
+
+        </table>
 
 </body>
 </html>
