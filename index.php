@@ -6,33 +6,39 @@ date_default_timezone_set('Europe/Vilnius');
 
 
 
-// if(isset($_POST['mygtukas'])){
-//     $con = fopen("text.txt", "a");
-//     fwrite($con, $_POST['vardas'] . ', ');
-//     fclose($con);  
-// };
+$failas = fopen("test.csv", "r"); 
+$failoTurinys = fgetcsv($failas);
+fclose($failas);  
 
-if (!empty($_POST)){
-    $con = fopen("text.txt", "a");
-    fwrite($con, $_POST['rusis'] . ', ' . $_POST['vardas'] . ', ' . $_POST['amzius'] . ', ' . $_POST['veisle'] . '-');
-    fclose($con);    
+
+
+if(empty($failoTurinys)){
+    $content = fopen('test.csv', 'a');
+    fwrite($content, 'vardas, pavarde, amzius' . "\r\n");
+    fclose($content);  
+} else {
+    if (!empty($_POST['vardas']) && !empty($_POST['pavarde']) && !empty($_POST['amzius'])){
+        $content = fopen('test.csv', 'a');
+        fwrite($content, $_POST['vardas'] . ',' . $_POST['pavarde'] . ',' . $_POST['amzius'] . "\r\n"); 
+        fclose($content);
+    }
 }
 
+$arrayToTableFromCsv = []; // sukurtas naujas masyvas i kuri sudes visa data is CSV
 
-$file = fopen("text.txt", "r");
-$stringas = fgets($file);
-$stringas = substr_replace($stringas, "", -1);
-// var_dump($stringas);
-fclose($file);
+if (($h = fopen('test.csv', "r")) !== FALSE) {  //i if salyga idetas tikrinimas failo atidarymo ir mode r aprasymo
+    while (($data = fgetcsv($h, 1000, ",")) !== FALSE) { //sukamas While ciklas per paimta is csv faila kuriam nurodomas koks atsumas galimas tarp kableliu bei sirtukas tarp stulpeliu
+        $arrayToTableFromCsv[] = $data; //priskiriama i nauja masyva masyvai su duomenis(kiekviena eilute yra masyvas)
+    }
+    fclose($h); // uzdaromas prisijungimas prie failo
+}
 
-$array = explode('-', $stringas);
-var_dump($array);
+var_dump($arrayToTableFromCsv); //isvardampinamas masyvas pagal kuri jau daroma lentele
 
 
-
-// unset($_POST['mygtukas']);
-// var_dump($_POST);
-// var_dump($_GET);
+//1. sukurti forma kuri butu issaugoma CSV faile. Forma sudaro: eilutes id, augintinio nuotraukos src kodas, 
+// augintinio pavadinimas, augintinio metai, augintinio savininko vardas //2. sukurti mini section kuriame butu 
+// atvaizduojama gyvuno foto ir pilnas aprasymas isskyrus eilutes ID.
 
 ?>
 
@@ -58,36 +64,16 @@ th, td {
 <body>
 
 <form action="" method="post">
-    <input type="text" placeholder="Gyvuno rusis..." name="rusis">   
-    <input type="text" placeholder="Gyvuno vardas..." name="vardas">   
-    <input type="text" placeholder="Gyvuno amzius..." name="amzius">   
-    <input type="text" placeholder="Gyvuno veisle..." name="veisle">   
+    <input type="text" placeholder="Eilutes ID..." name="ID">   
+    <input type="text" placeholder="Augintinio pavadinimas..." name="augintinis">   
+    <input type="text" placeholder="Augintinio metai..." name="amzius">   
+    <input type="text" placeholder="Savininko vardas..." name="savininkas">   
+    <input type="text" placeholder="Nuotraukos src..." name="nuotrauka">   
 
     <input type="submit" name="mygtukas" value="siusti">
 </form>
 
 
-    <table style="margin-top: 50px;">
-    <tr>
-        <th>Gyvuno rusis</th>
-        <th>Vardas</th>
-        <th>Amzius</th>
-        <th>Veisle</th>
-    </tr>
-
-    <?php foreach($array as $value): ?>
-    <?php $new = explode(', ', $value);?>
-    <?php var_dump($new); ?>
-        <tr>
-        <?php foreach ($new as $newData): ?>
-            <td>
-                <?php print $newData; ?>
-            </td>
-        <?php endforeach; ?>
-        </tr>
-    <?php endforeach; ?>
-
-        </table>
 
 </body>
 </html>
